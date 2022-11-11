@@ -115,6 +115,29 @@ t.then((message) => {
     console.log("it must execute no matter success or fail");
   });
 
+//await in loop
+//async function 
+async function process(array) {
+    console.log(array)
+    for (var i=0; i<array.length; i++) {
+        const result = await resolveAfter2seconds() //await in loop
+        let res = result + i;
+        console.log(res)
+  }
+  console.log(array)
+}
+  let a = [1,2,3,4,5]
+  process(a);
+
+//promise
+  function resolveAfter2seconds(){
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(2);
+        },2000);
+    });
+  }
+  
 //regex
 const regExpDate = /([0-9]{4})-([0-9]{2})-([0-9]{2})/;
 const match = regExpDate.exec('2020-06-25');
